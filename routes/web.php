@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// dd(env('DB_PASSWORD'));
 Route::get('/', function () {
     return view('welcome');
 });
