@@ -34,7 +34,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                      @auth
+                        <li><a class="nav-link" href="{{ url('/cpanel/courses_categories') }}">Courses Categories</a></li>
+                        <li><a class="nav-link" href="{{ url('/cpanel/courses') }}">Courses</a></li>
+                      @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->

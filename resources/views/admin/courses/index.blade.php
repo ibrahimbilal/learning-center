@@ -6,11 +6,11 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                  Courses Categories
+                  Courses
                   <a
-                    href="{{route('add_course_category')}}"
+                    href="{{route('add_course')}}"
                     class="btn btn-sm btn-success float-right"
-                  >Add Course Category</a>
+                  >Add Course</a>
                 </div>
                 <?php if(Session('message')) { ?>
                   <div class="alert alert-success">
@@ -29,10 +29,10 @@
                         <td>{{$value->id}}</td>
                         <td>{{$value->name}}</td>
                         <td>
-                          <a href="/cpanel/courses_categories/edit/{{$value->id}}" class="btn btn-sm btn-info">
+                          <a href="/cpanel/courses/edit/{{$value->id}}" class="btn btn-sm btn-info">
                             Edit
                           </a>
-                          <button class="btn btn-sm btn-danger" onclick="deleteCategory({{$value->id}})">
+                          <button class="btn btn-sm btn-danger" onclick="deleteCourse({{$value->id}})">
                             Delete
                           </button>
                         </td>
@@ -45,13 +45,13 @@
     </div>
 </div>
 <script>
-function deleteCategory(id) {
+function deleteCourse(id) {
   console.log(id);
   $.ajax({
       type: 'post',
-      url: '/cpanel/courses_categories/delete',
+      url: '/cpanel/courses/delete',
       data: {
-        cat_id: id,
+        row_id: id,
         _token: '{{ csrf_token() }}'
       },
       dataType: 'json',
