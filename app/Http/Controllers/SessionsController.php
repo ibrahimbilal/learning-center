@@ -32,7 +32,6 @@ class SessionsController extends Controller
         'room' => Room::all()
       ]);
     }
-
        public function create(Request $request)
        {
           $data = $request->all();
