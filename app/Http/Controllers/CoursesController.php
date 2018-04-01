@@ -49,6 +49,7 @@ class CoursesController extends Controller
     {
       // select * from courses where id  = $id
       $course = Course::find($id);
+      // dd($course->category->name);
       if(!$course) {
         abort(404);
       }

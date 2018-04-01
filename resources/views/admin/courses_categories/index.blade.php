@@ -22,12 +22,18 @@
                       <tr>
                         <th>#</th>
                         <th>Name</th>
+                        <th>Courses</th>
                         <th>Action</th>
                       </tr>
                       @foreach ($data as $value)
                       <tr row_id="{{$value->id}}">
                         <td>{{$value->id}}</td>
                         <td>{{$value->name}}</td>
+                        <td>
+                          @foreach ($value->courses as $key => $value)
+                            {{ $value->name }}
+                          @endforeach
+                        </td>
                         <td>
                           <a href="/cpanel/courses_categories/edit/{{$value->id}}" class="btn btn-sm btn-info">
                             Edit

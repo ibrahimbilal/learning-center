@@ -10,4 +10,9 @@ class Course extends Model
   use SoftDeletes;
 
   protected $table = 'courses';
+
+  public function category()
+  {
+      return $this->belongsTo('App\CourseCategory', 'category_id', 'id');
+  }
 }

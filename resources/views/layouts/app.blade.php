@@ -37,6 +37,10 @@
                       @auth
                         <li><a class="nav-link" href="{{ url('/cpanel/courses_categories') }}">Courses Categories</a></li>
                         <li><a class="nav-link" href="{{ url('/cpanel/courses') }}">Courses</a></li>
+                        <li><a class="nav-link" href="{{ url('/cpanel/students') }}">Students</a></li>
+                        <li><a class="nav-link" href="{{ url('/cpanel/teachers') }}">Teachers</a></li>
+                        <li><a class="nav-link" href="{{ url('/cpanel/rooms') }}">Rooms</a></li>
+                        <li><a class="nav-link" href="{{ url('/cpanel/sessions') }}">Sessions</a></li>
                       @endauth
                     </ul>
 
@@ -49,7 +53,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ __('welcome.header_name', ['n' => Auth::user()->name]) }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
