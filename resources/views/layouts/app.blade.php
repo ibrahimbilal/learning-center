@@ -19,6 +19,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <?php if(session('current_lang') == 'ar') { ?>
+      <link href="{{ asset('css/app_ar.css') }}" rel="stylesheet">
+    <?php } ?>
 </head>
 <body>
     <div id="app">
@@ -41,6 +45,7 @@
                         <li><a class="nav-link" href="{{ url('/cpanel/teachers') }}">Teachers</a></li>
                         <li><a class="nav-link" href="{{ url('/cpanel/rooms') }}">Rooms</a></li>
                         <li><a class="nav-link" href="{{ url('/cpanel/sessions') }}">Sessions</a></li>
+                        <li><a class="nav-link" href="{{ url('/cpanel/students_sessions') }}">Students Sessions</a></li>
                       @endauth
                     </ul>
 

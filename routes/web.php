@@ -18,6 +18,10 @@ App::setLocale('ar');
 
 Auth::routes();
 
+Route::get('/change_lang/{lang}', function($lang) {
+  session(['current_lang' => $lang]);
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('cpanel')->middleware('auth')->group(function() {
@@ -93,4 +97,11 @@ Route::prefix('cpanel/rooms')->middleware('auth')->group(function(){
   Route::post('update', 'RoomsController@update')->name('update_rooms');
 
   Route::post('delete', 'RoomsController@delete')->name('delete_rooms');
+});
+
+Route::prefix('cpanel/students_sessions')->group(function() {
+  Route::get('', 'StudentsSessionsController@index');
+  Route::get('add', 'StudentsSessionsController@add')->name('add_student_session');
+  Route::post('create', 'StudentsSessionsController@create')->name('create_student_session');
+  Route::post('delete', 'StudentsSessionsController@delete');
 });

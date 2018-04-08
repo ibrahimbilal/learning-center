@@ -16,6 +16,9 @@ class StudentsController extends Controller
      */
     public function index()
     {
+      if(session('current_lang')) {
+        \App::setLocale(session('current_lang'));
+      }
       activity()->log('Enter Student Index');
 
         return view('admin.students.index' ,[
