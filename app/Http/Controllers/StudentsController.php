@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+use App\Session;
+use App\StudentSession;
 use DB;
 use Validator;
 
@@ -29,7 +31,8 @@ class StudentsController extends Controller
     public function add()
     {
       return view('admin.students.add', [
-        'data' => Student::all()
+        'data' => Student::all(),
+        'sessions' => Session::all()
       ]);
     }
 
@@ -66,6 +69,17 @@ class StudentsController extends Controller
          $student->reg_date = $request->get('reg_date');
 
          $student->save();
+
+         $student_id = $student->id;
+
+         $session_ids = $request->get('sessions_ids');
+
+         foreach ($session_ids as $value) {
+           $student_session = new StudentSession;
+           $student_session->session_id = $value;
+           $student_session->student_id = $student_id;
+           $student_session->save();
+         }
 
           return redirect('cpanel/students')->with('status', 'Student Added!');
        }

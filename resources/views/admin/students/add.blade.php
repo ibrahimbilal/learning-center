@@ -61,6 +61,14 @@
                         <input class="form-control" id="Join" type="date" name="reg_date" value="{{old('reg_date')}}">
                       </div>
                     </div>
+                    <div class="form-group">
+                      <label for="NameInput">Session</label>
+                      <select multiple class="form-control chosen" name="sessions_ids[]">
+                        @foreach ($sessions as $value)
+                          <option value="{{$value->id}}">{{$value->code}}</option>
+                        @endforeach
+                      </select>
+                    </div>
                     <br>
                     <input type="submit" class="btn btn-primary float-right" value="Create">
                   </form>

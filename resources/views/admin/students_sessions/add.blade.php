@@ -21,7 +21,7 @@
                       @csrf
                       <div class="form-group">
                         <label for="NameInput">Student</label>
-                        <select class="form-control" name="student_id">
+                        <select class="form-control chosen" name="student_id">
                           @foreach ($students as $value)
                             <option value="{{$value->id}}">{{$value->full_name}}</option>
                           @endforeach
@@ -29,7 +29,7 @@
                       </div>
                       <div class="form-group">
                         <label for="NameInput">Session</label>
-                        <select class="form-control" name="session_id">
+                        <select class="form-control chosen" name="session_id">
                           @foreach ($sessions as $value)
                             <option value="{{$value->id}}">{{$value->code}}</option>
                           @endforeach
@@ -42,4 +42,5 @@
         </div>
     </div>
 </div>
+
 @endsection
